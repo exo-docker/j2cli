@@ -2,7 +2,7 @@
 
 Jinja2 command line renderer packaged as a Docker image: [`exoplatform/j2cli`](https://hub.docker.com/r/exoplatform/j2cli).
 
-It is used by the [eXo ADT](https://github.com/exoplatform/adt) to generate its configuration files from `*.j2` templates. The environment variables are the template context.
+It renders `*.j2` templates, for instance to generate configuration files in a shell script or a CI job, without installing anything but Docker. The environment variables are the template context.
 
 Since `2.0.0` the image is built on [jinjanator](https://github.com/kpfleming/jinjanator) (`jinjanate`), the maintained fork of [j2cli](https://github.com/kolypto/j2cli). The `1.x` tags are the legacy `j2cli 0.3.10` (Python 3.10, Jinja2 3.1.2) and are no longer rebuilt.
 
@@ -27,14 +27,14 @@ docker run --rm \
 
 - Use `--env-file` to give all the variables of a file (a multi-lines value isn't supported by Docker in this file).
 - `--undefined` allows undefined variables, which are rendered as empty strings. Without it an undefined variable is an error.
-- The template must be mounted in the container (read only is enough). The ADT mounts its directory on the same absolute path as on the host.
+- The template must be mounted in the container (read only is enough). Mounting it on the same absolute path as on the host keeps the paths identical inside and outside the container.
 - Don't forward the `PATH` of your host with `--env-file`, it would override the one of the container.
 
 Other options of `jinjanate` (data files in `json`/`yaml`/`ini`/`env` format, `--import-env`, ...) are described in the [jinjanator documentation](https://github.com/kpfleming/jinjanator).
 
 ### Without Docker
 
-The ADT uses by order of preference `jinjanate`, `j2` and then this image. To use it directly on your host:
+To use the same renderer directly on your host, without Docker:
 
 ```bash
 pipx install jinjanator

@@ -6,7 +6,7 @@ WORKDIR="$(mktemp -d)"
 trap 'rm -rf "${WORKDIR}"' EXIT
 FAILED=0
 
-# the template is mounted on the same absolute path than on the host, like the ADT does
+# the template is mounted on the same absolute path than on the host, so the same command works inside and outside the container
 render() { # [-e VAR=value ...] -- <jinjanate options> <template>
   local _env=()
   while [ "$1" != "--" ]; do _env+=("$1"); shift; done; shift
