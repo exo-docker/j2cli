@@ -1,5 +1,5 @@
 # syntax=docker/dockerfile:1
-FROM python:3.12-alpine
+FROM python:3.14-alpine
 
 # jinjanator is the maintained fork of j2cli (https://github.com/kpfleming/jinjanator)
 ARG JINJANATOR_VERSION=25.3.1
