@@ -6,7 +6,7 @@ It renders `*.j2` templates, for instance to generate configuration files in a s
 
 Since `2.0.0` the image is built on [jinjanator](https://github.com/kpfleming/jinjanator) (`jinjanate`), the maintained fork of [j2cli](https://github.com/kolypto/j2cli). The `1.x` tags are the legacy `j2cli 0.3.10` (Python 3.10, Jinja2 3.1.2) and are no longer rebuilt.
 
-Current versions: jinjanator `25.3.1`, Jinja2 `3.1.6`, Python `3.12`.
+Current versions: jinjanator `25.3.1`, Jinja2 `3.1.6`, Python `3.14`.
 
 ## Usage
 
